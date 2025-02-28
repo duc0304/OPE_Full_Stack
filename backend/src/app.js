@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const db = require('./models');
-const authRoutes = require('./routes/auth.routes');
+const routes = require('./routes');
 
 // Initialize express app
 const app = express();
@@ -27,8 +27,8 @@ app.get('/', (req, res) => {
   res.json({ message: 'Welcome to API' });
 });
 
-// Auth routes
-app.use('/api/auth', authRoutes);
+// API routes
+app.use('/api', routes);
 
 // Error handler
 app.use((err, req, res, next) => {

@@ -25,9 +25,10 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-// Import models - chỉ import User model
+// Import models
 db.User = require('./user.model')(sequelize, Sequelize);
-// Bỏ dòng import Customer model
+// Add Customer model
+db.Customer = require('./customer.model')(sequelize, Sequelize);
 
 // Định nghĩa các mối quan hệ giữa các model (nếu có)
 // Ví dụ: db.User.hasMany(db.Customer);
